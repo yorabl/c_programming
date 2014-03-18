@@ -18,11 +18,21 @@ int main()
 
 int atoi(char s[])
 {
-	int i, n;
+	int i, n, sign;
 	
 	n = 0;
+	if (s[0] == '-')
+	{
+		sign = 1;
+		i = 1;
+	}
+	else
+	{
+		sign = 0;
+		i = 0;
+	}
 
-	for (i = 0 ; (s[i] != '\0') || (s[i] != '\n') || (s[i] != '\b')	|| (s[i] != '\t') ; ++i)
+	for ( ; (s[i] != '\0')  ; ++i)
 	{
 		if((s[i] >= ZERO) && (s[i] <= NINE))
 		{	
@@ -36,8 +46,13 @@ int atoi(char s[])
 		{
 			n = n * 16 + (s[i] - LOWER);
 		}
+		else if ((s[i] == 'x') || (s[i] == 'X'))
+		{
+		}
 		else 
 			break;
+
+
 	}
 	return n;
 
