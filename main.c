@@ -46,13 +46,10 @@ int atoi(char s[])
 		{
 			n = n * 16 + (s[i] - LOWER);
 		}
-		else if ((s[i] == 'x') || (s[i] == 'X'))
+		else if (!((s[i] == 'x') || (s[i] == 'X')))
 		{
-		}
-		else 
 			break;
-
-
+		}
 	}
 	return n;
 
