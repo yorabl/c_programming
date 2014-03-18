@@ -51,6 +51,8 @@ int atoi(char s[])
 			break;
 		}
 	}
-	return n;
-
+	if(sign)
+		return 0 - n;
+	else
+		return n;
 }
