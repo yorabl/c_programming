@@ -1,5 +1,4 @@
 #include <stdio.h> 
-#include <string.h>
 #define LOWER 'a' - 10
 #define UPPER 'A' - 10
 #define ZERO '0'
@@ -7,13 +6,31 @@
 
 
 int atoi(char s[]);
+void squeeze(char s1[], char s2[]);
 
 int main()
 {
-	char s[] = "12abf";
+	char s[] = "Hello, I love you";
+	char t[] = "He";
 
-	int n = atoi(s);
-	printf("%#x", n);
+	squeeze(s,t);
+	printf("%s\n", s);
+}
+
+
+void  squeeze(char s1[], char s2[])
+{
+	int i, j, k;
+	for (i = 0; s2[i] != '\0' ; ++i)
+	{
+		for(j = k = 0; s1[j] != '\0' ; j++)
+		{
+			if(s1[j] != s2[i])
+				s1[k++] = s1[j];
+			printf("%d: %s \n", j, s1);
+		}
+		s1[j - (j - k)] = '\0';
+	}
 }
 
 int atoi(char s[])
