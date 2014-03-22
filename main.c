@@ -7,14 +7,40 @@
 
 int atoi(char s[]);
 void squeeze(char s1[], char s2[]);
+int binsearch(int x, int v[], int n);
 
 int main()
 {
-	char s[] = "Hello, I love you";
-	char t[] = "He";
+	int v[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 100};
+	int location; 
 
-	squeeze(s,t);
-	printf("%s\n", s);
+	location = binsearch(4, v, 10);
+	printf("%d\n", location);
+}
+
+int binsearch(int x, int v[], int n)
+{
+	int low, high, mid;
+	low = 0;
+	high = n - 1;
+	while (low <= high)
+	{
+		mid = (high + low) / 2;
+		if(x < v[mid])
+		{
+			high = mid - 1;
+		}
+		else
+		{
+			low = mid + 1;
+		}
+
+	}	
+	if (v[mid] == x)
+		return mid;
+	else
+		return -1;
+
 }
 
 
