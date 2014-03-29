@@ -1,17 +1,18 @@
 #include <stdio.h>
-#define ARREYLENGTH 4
+#define ARRAYLENGTH 4
 
-void exchange(float currency, float values[]);
-void get_values(float values[]);
+void exchange(float currency, float values[]); // a function for entering the values in Dollars into the array.
+void get_values(float values[]); // a function for printing the values in Dollars & in NIS.
 int main()
 {
-	float currency;
-	float values[ARREYLENGTH];
-
+	float currency; //the currency of NIS for Dollars.
+	float values[ARRAYLENGTH]; // an array of the values in dollars. 
+	//Enter the currncy of NIS vs. a Dollar.
 	printf("Please enter the currncy\n");
 	scanf("%f", &currency);
-	
+	//calling the get value to enter the values to the array.
 	get_values(values);
+	//print the values in Dollars & NIS 
 	exchange(currency, values);
 
 	return 0;
@@ -19,8 +20,9 @@ int main()
 
 void get_values(float values[])
 {
-	int i;
-	for (i = 0; i < ARREYLENGTH; i++)
+	int i; //declaring index variable.
+	//the loop enters values in Dollars.
+	for (i = 0; i < ARRAYLENGTH; i++)
 	{
 		printf("Please enter the value in Dollars\n");
 		scanf("%f", &values[i]);
@@ -28,11 +30,13 @@ void get_values(float values[])
 }
 void exchange(float currency, float values[])
 {
-	int i; 
+	int i; //declaring index variable.
+	//printing the header of the table.
 	printf(" $ \t \t NIS \n--- \t \t-----\n");
-	for(i = 0; i < ARREYLENGTH; i++)
+	//the loop prints the values in Dollars & NIS 
+	for(i = 0; i < ARRAYLENGTH; i++)
 	{
-		printf("%.2f \t \t %.2f\n", values[i], (values[i] * currency));
+		printf("%.2f \t \t%.2f\n", values[i], (values[i] * currency));
 	}
 }
 
